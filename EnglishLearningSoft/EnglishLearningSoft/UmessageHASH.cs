@@ -1,18 +1,22 @@
-﻿/*
-//使用了goto语句待优化
+﻿//使用了goto语句待优化
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace EnglishLearningSoftware
 {
     internal class UmessageHASH
     {
+        Hashtable uhash;
         public string uName;
         string uPassWord;
         public UmessageHASH()
         {
+            uhash = new Hashtable();
+            hashload();
+
             int num;
             Console.WriteLine("请选择操作： \n1.注册帐号 \n2.登入帐号 \n3.删除帐号 \n4.修改密码");
             num = Convert.ToInt32(Console.ReadLine());
@@ -77,6 +81,26 @@ namespace EnglishLearningSoftware
                     break;
             }
         }
+        private void hashload()
+        {
+            uhash.Clear();
+            FileStream fs = new FileStream("Umessage.dat", FileMode.OpenOrCreate);
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                uhash = (Hashtable)bf.Deserialize(fs);
+            }
+            catch (Exception e) { }
+            fs.Close();
+
+        }
+        private void hashsave()
+        {
+            FileStream fs = new FileStream("Umessage.dat", FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, uhash);
+            fs.Close();
+        }
         private string readPassWord()
         {
             string PassWord = null;
@@ -105,37 +129,24 @@ namespace EnglishLearningSoftware
         private bool matchUmessage()
         {
             bool match = false;
-            StreamReader sr = new StreamReader("Umessage.txt");
-            while (match != true && !sr.EndOfStream)
+            foreach (DictionaryEntry item in uhash)
             {
-                string singleLine = sr.ReadLine();
-                int i = singleLine.IndexOf(' ');
-                if (uName.Equals(singleLine.Substring(0, i)))
-                    match = uPassWord.Equals(singleLine.Substring(i + 1));
+                if (item.Key.Equals(uName) && item.Value.Equals(uPassWord))
+                    match = true;
             }
-            sr.Close();
             return match;
         }
         private void addUmessage()
         {
-            FileStream sf = new FileStream("Umessage.txt", FileMode.OpenOrCreate);
-            sf.Position = sf.Length;
-            StreamWriter sw = new StreamWriter(sf);
-            sw.WriteLine(uName + " " + uPassWord);
-            sw.Close();
-            sf.Close();
+            uhash.Add(uName, uPassWord);
+            hashsave();
         }
         private void delUmessage()
         {
             if (matchUmessage())
             {
-                List<string> lines = new List<string>(File.ReadAllLines("Umessage.txt"));
-                for (int i = 0; i < lines.Count; i++)
-                {
-                    if (lines[i].Equals(uName + " " + uPassWord))
-                        lines.RemoveAt(i);
-                }
-                File.WriteAllLines("Umessage.txt", lines.ToArray());
+                uhash.Remove(uName);
+                hashsave();
             }
             else
                 Console.WriteLine("请输入正确的帐号密码");
@@ -151,4 +162,3 @@ namespace EnglishLearningSoftware
         }
     }
 }
-*/
