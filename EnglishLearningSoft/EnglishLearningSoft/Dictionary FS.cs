@@ -68,7 +68,7 @@ namespace EnglishLearningSoftware
         }
         private void readFS()
         {
-            StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt", Encoding.UTF8);
+            StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt");
             //            StreamReader Sr = new StreamReader(@"..\..\word\all_item.txt", Encoding.UTF8);
             while (!Sr.EndOfStream)    
             {

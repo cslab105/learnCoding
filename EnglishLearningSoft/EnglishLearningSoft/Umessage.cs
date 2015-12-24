@@ -1,4 +1,5 @@
-﻿using System;
+﻿//使用了goto语句待优化
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -116,7 +117,7 @@ namespace EnglishLearningSoftware
         }
         private void addUmessage()
         {
-            FileStream sf = File.OpenWrite("Umessage.txt");
+            FileStream sf = new FileStream("Umessage.txt", FileMode.OpenOrCreate);
             sf.Position = sf.Length;
             StreamWriter sw = new StreamWriter(sf);
             sw.WriteLine(uName + " " + uPassWord);
