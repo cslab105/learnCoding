@@ -47,23 +47,25 @@ namespace EnglishLearningSoftware
 *///原先循环不易理解且有缺陷
             while (d1.dictionary.Count != 0)
             {
-                Console.WriteLine(d1.dictionary[0].Meaning);
+                Random ran = new Random();
+                int RandKey = ran.Next(0, d1.dictionary.Count);
+                Console.WriteLine(d1.dictionary[RandKey].Meaning);
                 input = Console.ReadLine();
-                if (input == d1.dictionary[0].Spell)
+                if (input == d1.dictionary[RandKey].Spell)
                 {
                     Console.WriteLine("答對了");
-                    el1.addTExamLog(d1.dictionary[0].ToString());
+                    el1.addTExamLog(d1.dictionary[RandKey].ToString());
                     right++;
-                    d1.dictionary.RemoveAt(0);
+                    d1.dictionary.RemoveAt(RandKey);
                 }
                 else
                 {
-                    Console.WriteLine("答錯了,是  " + d1.dictionary[0].ToString());
-                    el1.addFExamLog(input, d1.dictionary[0].ToString());
-                    el1.addExamErrorLog(input, d1.dictionary[0].ToString());
+                    Console.WriteLine("答錯了,是  " + d1.dictionary[RandKey].ToString());
+                    el1.addFExamLog(input, d1.dictionary[RandKey].ToString());
+                    el1.addExamErrorLog(input, d1.dictionary[RandKey].ToString());
                     wrong++;
-                    d1.dictionary.Add(d1.dictionary[0]);
-                    d1.dictionary.RemoveAt(0);
+                    d1.dictionary.Add(d1.dictionary[RandKey]);
+                    d1.dictionary.RemoveAt(RandKey);
                 }
             }
 

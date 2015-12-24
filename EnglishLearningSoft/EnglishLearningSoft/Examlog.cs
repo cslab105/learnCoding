@@ -67,6 +67,7 @@ namespace EnglishLearningSoftware
             usf.Position = usf.Length;
             usw = new StreamWriter(usf);
             usw.WriteLine(uName + "于" + DateTime.Now.ToString() + " 结束答题。花费时间为" + time);
+            usw.WriteLine();
             usw.Close();
             usf.Close();
         }
@@ -75,6 +76,7 @@ namespace EnglishLearningSoftware
             esf.Position = esf.Length;
             esw = new StreamWriter(esf);
             esw.WriteLine(uName + "于" + DateTime.Now.ToString() + " 结束答题。花费时间为" + time);
+            esw.WriteLine();
             esw.Close();
             esf.Close();
         }
