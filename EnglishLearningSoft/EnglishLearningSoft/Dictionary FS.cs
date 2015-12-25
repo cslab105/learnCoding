@@ -1,4 +1,6 @@
-﻿/**
+﻿
+using System;
+/**
 字典存放单词用
 */
 using System.Collections.Generic;
@@ -68,39 +70,52 @@ namespace EnglishLearningSoftware
         }
         private void readFS()
         {
-            StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt");
-            //            StreamReader Sr = new StreamReader(@"..\..\word\all_item.txt", Encoding.UTF8);
-            while (!Sr.EndOfStream)    
+            try
             {
-                string rdata = Sr.ReadLine();
-                /*              char[] xpart = rdata.ToCharArray();
-                                string part1=null, part2, part3;
-                                int x = 0, y = 0, z = 0;
-                                for (x = 0; y != 2 & x <= xpart.Length - 1; x++)
-                                {
-                                    if (xpart[x] == ' ' && y==0)
+                StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt");
+
+                //            StreamReader Sr = new StreamReader(@"..\..\word\all_item.txt", Encoding.UTF8);
+                while (!Sr.EndOfStream)
+                {
+                    string rdata = Sr.ReadLine();
+                    /*              char[] xpart = rdata.ToCharArray();
+                                    string part1=null, part2, part3;
+                                    int x = 0, y = 0, z = 0;
+                                    for (x = 0; y != 2 & x <= xpart.Length - 1; x++)
                                     {
-                                        part1 = rdata.Substring(0, x);
-                                        y++;
-                                        z = x+1;
+                                        if (xpart[x] == ' ' && y==0)
+                                        {
+                                            part1 = rdata.Substring(0, x);
+                                            y++;
+                                            z = x+1;
+                                            continue;
+                                        }
+                                        if (xpart[x] == ' ' && y == 1)
+                                        {
+                                            part2 = rdata.Substring(z, x - z);
+                                            part3 = rdata.Substring(x + 1);
+                                            dictionary.Add(new Word(part1, part2, part3));
+                                            y++;
+                                        }
                                         continue;
                                     }
-                                    if (xpart[x] == ' ' && y == 1)
-                                    {
-                                        part2 = rdata.Substring(z, x - z);
-                                        part3 = rdata.Substring(x + 1);
-                                        dictionary.Add(new Word(part1, part2, part3));
-                                        y++;
-                                    }
-                                    continue;
-                                }
-                */
-                int i = rdata.IndexOf(' ');
-                int n = rdata.IndexOf('(');
-                string par1 = rdata.Substring(0, i);
-                string par2 = rdata.Substring(i + 1, n - i - 2);
-                string par3 = rdata.Substring(n);
-                dictionary.Add(new Word(par1, par2, par3));
+                    */
+                    int i = rdata.IndexOf(' ');
+                    int n = rdata.IndexOf('(');
+                    string par1 = rdata.Substring(0, i);
+                    string par2 = rdata.Substring(i + 1, n - i - 2);
+                    string par3 = rdata.Substring(n);
+                    dictionary.Add(new Word(par1, par2, par3));
+
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("请确定单词文件存在或未被占用");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("请确定单词文件内数据无误");
             }
         }
     }
