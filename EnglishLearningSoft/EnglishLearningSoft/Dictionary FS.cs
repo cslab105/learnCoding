@@ -72,9 +72,9 @@ namespace EnglishLearningSoftware
         {
             try
             {
-                StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt");
+                StreamReader Sr = new StreamReader(@"..\..\word\tenwords.txt",Encoding.Unicode);
 
-                //            StreamReader Sr = new StreamReader(@"..\..\word\all_item.txt", Encoding.UTF8);
+                //           StreamReader Sr = new StreamReader(@"..\..\word\all_item.txt", Encoding.UTF8);
                 while (!Sr.EndOfStream)
                 {
                     string rdata = Sr.ReadLine();
