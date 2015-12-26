@@ -1,4 +1,4 @@
-﻿/*
+﻿
 //使用了goto语句待优化
 using System;
 using System.Collections.Generic;
@@ -7,11 +7,11 @@ using System.IO;
 
 namespace EnglishLearningSoftware
 {
-    internal class UmessageHASH
+    internal class Umessage
     {
         public string uName;
         string uPassWord;
-        public UmessageHASH()
+        public Umessage()
         {
             int num;
             Console.WriteLine("请选择操作： \n1.注册帐号 \n2.登入帐号 \n3.删除帐号 \n4.修改密码");
@@ -151,4 +151,3 @@ namespace EnglishLearningSoftware
         }
     }
 }
-*/

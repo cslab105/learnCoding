@@ -10,7 +10,8 @@ namespace EnglishLearningSoftware
         int right, wrong;
         double Rpercentage, Wpercentage;
         //Dictionary d1;
-        DictionaryFS d1;
+        //DictionaryFS d1;
+        DictionaryDB d1;
         Examlog el1;
         Timer T1;
         string input;
@@ -25,26 +26,27 @@ namespace EnglishLearningSoftware
             Rpercentage = 0;
             Wpercentage = 0;
             //d1 = new Dictionary();
-            d1 = new DictionaryFS();
-/*            for (int i = 0; i < d1.dictionary.Count; i++)
-            {
-                Console.WriteLine(d1.dictionary[i].Meaning);
-                input = Console.ReadLine();
-                if (input == d1.dictionary[i].Spell)
-                {
-                    Console.WriteLine("答對了");
-                    el1.addExamLog(input);
-                    right++;
-                    d1.dictionary.RemoveAt(i);
-                    i--;
-                }
-                else
-                {
-                    Console.WriteLine("答錯了,是  " + d1.dictionary[i].ToString());
-                    wrong++;
-                }
-            }
-*///原先循环不易理解且有缺陷
+            d1 = new DictionaryDB();
+            //原先循环不易理解且有缺陷
+            /*            for (int i = 0; i < d1.dictionary.Count; i++)
+                        {
+                            Console.WriteLine(d1.dictionary[i].Meaning);
+                            input = Console.ReadLine();
+                            if (input == d1.dictionary[i].Spell)
+                            {
+                                Console.WriteLine("答對了");
+                                el1.addExamLog(input);
+                                right++;
+                                d1.dictionary.RemoveAt(i);
+                                i--;
+                            }
+                            else
+                            {
+                                Console.WriteLine("答錯了,是  " + d1.dictionary[i].ToString());
+                                wrong++;
+                            }
+                        }
+            */
             while (d1.dictionary.Count != 0)
             {
                 Random ran = new Random();

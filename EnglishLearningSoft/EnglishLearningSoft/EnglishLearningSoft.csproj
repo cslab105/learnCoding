@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionaryDB.cs" />
     <Compile Include="Dictionary FS.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="Exam.cs" />
