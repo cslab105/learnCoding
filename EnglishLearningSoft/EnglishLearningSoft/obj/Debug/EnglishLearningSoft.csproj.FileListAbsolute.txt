@@ -1,6 +1,8 @@
 E:\coding\EnglishLearningSoft\EnglishLearningSoft\bin\Debug\EnglishLearningSoft.exe.config
+E:\coding\EnglishLearningSoft\EnglishLearningSoft\obj\Debug\EnglishLearningSoft.csprojResolveAssemblyReference.cache
+E:\coding\EnglishLearningSoft\EnglishLearningSoft\bin\Debug\Dictionary.mdf
+E:\coding\EnglishLearningSoft\EnglishLearningSoft\bin\Debug\Dictionary_log.ldf
 E:\coding\EnglishLearningSoft\EnglishLearningSoft\bin\Debug\EnglishLearningSoft.exe
 E:\coding\EnglishLearningSoft\EnglishLearningSoft\bin\Debug\EnglishLearningSoft.pdb
-E:\coding\EnglishLearningSoft\EnglishLearningSoft\obj\Debug\EnglishLearningSoft.csprojResolveAssemblyReference.cache
 E:\coding\EnglishLearningSoft\EnglishLearningSoft\obj\Debug\EnglishLearningSoft.exe
 E:\coding\EnglishLearningSoft\EnglishLearningSoft\obj\Debug\EnglishLearningSoft.pdb

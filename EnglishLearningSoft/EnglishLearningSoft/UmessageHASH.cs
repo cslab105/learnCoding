@@ -92,7 +92,6 @@ namespace EnglishLearningSoftware
             }
             catch (Exception e) { }
             fs.Close();
-
         }
         private void hashsave()
         {

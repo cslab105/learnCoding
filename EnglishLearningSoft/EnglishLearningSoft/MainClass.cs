@@ -1,13 +1,16 @@
-﻿using System;
-using System.IO;
+﻿using Model;
+using System;
 using System.Threading;
 namespace EnglishLearningSoftware
 {
 
     class MainClass
     {
+        string conStr = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\coding\EnglishLearningSoft\EnglishLearningSoft\Dictionary.mdf;Integrated Security = True";
         static void Main(string[] args)
         {
+            UserInfo uf1 = new UserInfo();
+            ControlDB CD1 = new ControlDB("sdasda");
             //调用insetDataToDB将文档中的单词导入到数据库
             //insetDataToDB iDTDB = new insetDataToDB();
             //将线程命名为main
