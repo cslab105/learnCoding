@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="insetDataToDB.cs" />
     <Compile Include="Timer.cs" />
+    <Compile Include="UmessageHashToDB.cs" />
     <Compile Include="UmessageHASH.cs" />
     <Compile Include="Umessage.cs" />
   </ItemGroup>

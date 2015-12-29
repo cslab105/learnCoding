@@ -16,7 +16,7 @@ namespace EnglishLearningSoftware
             //本来打算写多线程
             //Thread exam = new Thread(Exam E1 = new Exam()).Start
             //启用用户信息管理类
-            UmessageHASH L1 = new UmessageHASH();
+            UmessageHashToDB L1 = new UmessageHashToDB();
             //现在将计时器放在Exam类中调用了
             //Timer T1 = new Timer();
             //启动考试记录功能
